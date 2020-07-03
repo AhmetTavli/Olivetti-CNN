@@ -23,6 +23,7 @@ from keras.preprocessing.image import load_img, img_to_array
 from keras.preprocessing.image import ImageDataGenerator
 from imutils.paths import list_images
 from matplotlib.pyplot import plot, legend, show, savefig
+from matplotlib.pyplot import suptitle, subplots
 
 
 class Net(Module):
@@ -279,15 +280,13 @@ def split_data(test_size, generate_data, write_to_file=True):
                                                    test_size=test_size)
 
     dir_train, dir_test = create_folder(write_to_file=write_to_file)
-
     size_train = x_train.shape[0]
     size_test = x_test.shape[0]
-
     train_folder_size = 0
     test_folder_size = 0
-
+    img_row, img_col = 64, 64
+    train_images, test_images = get_images(test_size=test_size)
     if write_to_file:
-        train_images, test_images = get_images(test_size=test_size)
         save_image(size=size_train, label=y_train, to_dir=dir_train,
                    x=train_images)
         save_image(size=size_test, label=y_test, to_dir=dir_test,
@@ -299,10 +298,29 @@ def split_data(test_size, generate_data, write_to_file=True):
     if generate_data:
         train_num = int(60000 / train_folder_size)
         test_num = int(10000 / test_folder_size)
-        train_data_gen = ImageDataGenerator(rescale=1./255, shear_range=0.2,
+        train_data_gen = ImageDataGenerator(rescale=1./255,
+                                            shear_range=0.2,
                                             zoom_range=0.2,
                                             horizontal_flip=True)
         test_data_gen = ImageDataGenerator(rescale=1./255)
+        example_img = train_images.reshape(train_images.shape[0],
+                                           img_row, img_col, 1)[0]
+        example_img = example_img.reshape((1,) + example_img.shape)
+        count = 0
+        gen_number = 10  # generate 10 samples from the example image
+        gen_images = []
+        gen_labels = []
+        for batch in train_data_gen.flow(x=example_img, batch_size=1):
+            batch_reshaped = batch.reshape(batch.shape[1], batch.shape[2])
+            gen_images.append(batch_reshaped)
+            gen_labels.append(y_train[0])
+            count += 1
+            if count > gen_number:
+                break
+        t_gen = "Generated Train Samples"
+        f_gen = "gen_train_samples.png"
+        display_generated_samples(2, 5, x=gen_images, y=gen_labels,
+                                  t=t_gen, title="Id:{}", f_name=f_gen)
         print("\nTrain generation begins..")
         generate_and_save(data_gen=train_data_gen, set_path=dir_train,
                           set_dir=listdir(path=dir_train), gen_num=train_num)
@@ -340,10 +358,39 @@ def plot_loss(train_loss, test_loss):
     show()
 
 
+def display_generated_samples(n_row, n_col, x, y, t, title="Id:{}",
+                              fig_size=(6, 3), dpi=300,
+                              f_name="default.png"):
+    """
+    Args:
+        n_row (int): Row number
+        n_col (int): Column number
+        x (list): generated images
+        y (list): labels
+        t (str): Graph title
+        title (str): Id title
+        fig_size (): figure size
+        dpi (int): dots per inch
+        f_name (str): file name
+    """
+    fig, ax = subplots(nrows=n_row, ncols=n_col, figsize=fig_size, dpi=dpi)
+    ax = ax.flatten()
+
+    sample_num = n_row * n_col
+
+    for i in range(sample_num):
+        ax[i].imshow(X=x[i], cmap='gray')
+        ax[i].set_xticks([])
+        ax[i].set_yticks([])
+        ax[i].set_title(title.format(y[i]))
+    suptitle(t=t)
+    savefig(f_name)
+
+
 def arguments(train_batch_size=64, test_batch_size=32, epochs=5,
               learning_rate=1.0, test_size=0.35, gamma=0.7,
               no_cuda=True, seed=1, log_interval=10, save_model=True,
-              write_to_file=False, generate_data=False,
+              write_to_file=True, generate_data=True,
               log_dir='runs/olivetti_experiment'):
     """
     Args:
