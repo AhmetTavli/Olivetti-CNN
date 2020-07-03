@@ -27,26 +27,31 @@ If we train the model on 260 images the maximum accuracy will be 5%.
 
 We will have two types of image generator: train and test
 
-    train_data_gen = ImageDataGenerator(rescale=1./255, 
-                                        shear_range=0.2, 
-                                        zoom_range=0.2, 
-                                        horizontal_flip=True)
-    
+```python
+train_data_gen = ImageDataGenerator(rescale=1./255, shear_range=0.2, 
+                                    zoom_range=0.2, horizontal_flip=True)
+```
+
 So what does it mean?
 
 From a selected sample:
 
 ![Image of example_img](3_0.png)
 
-10 samples generated based on the shearing, zoom and horizontal flip:
+10 samples are generated based on the shearing, zoom, and horizontal flip:
 
 ![Image of train_gen](gen_train_samples.png)
-   
+
+Each training samples are generated for 230 images
+
+Each test samples are generated for 71 images.
+
+Total 55.721 training images, 9935 test images.
+
 ### 3. Train and Test Loss (After 5 epoch)
 
  ![Image of loss](olivetti_loss.png)
 
-Overall test-set accuracy ~= 97%.
 
 ## Contributing :thought_balloon:
 Pull requests are welcome.
