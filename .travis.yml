@@ -2,10 +2,16 @@ language: python
 python:
   - "3.7.7"
 install:
-  - conda install -c anaconda scikit-learn
-  - conda install -c conda-forge opencv
+  - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - source "$HOME/miniconda/etc/profile.d/conda.sh"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  - conda info -a
+  - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION scikit-learn opencv keras==2.3.1 matplotlib
   - conda install pytorch torchvision -c pytorch
-  - conda install -c conda-forge keras==2.3.1
   - conda install -c conda-forge imutils
-  - conda install -c conda-forge matplotlib
+  - conda activate test-environment
+  - python setup.py install
 script: olivetti.py
