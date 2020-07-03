@@ -390,7 +390,7 @@ def display_generated_samples(n_row, n_col, x, y, t, title="Id:{}",
 def arguments(train_batch_size=64, test_batch_size=32, epochs=5,
               learning_rate=1.0, test_size=0.35, gamma=0.7,
               no_cuda=True, seed=1, log_interval=10, save_model=True,
-              write_to_file=True, generate_data=True,
+              write_to_file=False, generate_data=False,
               log_dir='runs/olivetti_experiment'):
     """
     Args:
