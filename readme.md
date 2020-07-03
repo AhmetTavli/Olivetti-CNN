@@ -28,10 +28,7 @@ If we train the model on 260 images the maximum accuracy will be 5%.
 We will have two types of image generator: train and test
 
 ```python
-train_data_gen = ImageDataGenerator(rescale=1./255, 
-                                    shear_range=0.2, 
-                                    zoom_range=0.2, 
-                                    horizontal_flip=True)
+train_data_gen = ImageDataGenerator(rescale=1./255, shear_range=0.2, zoom_range=0.2, horizontal_flip=True)
 ```
 
 So what does it mean?
@@ -48,7 +45,6 @@ From a selected sample:
 
  ![Image of loss](olivetti_loss.png)
 
-Overall test-set accuracy ~= 97%.
 
 ## Contributing :thought_balloon:
 Pull requests are welcome.
