@@ -27,7 +27,8 @@ If we train the model on 260 images the maximum accuracy will be 5%.
 
 We will have two types of image generator: train and test
 
-    train_data_gen = ImageDataGenerator(rescale=1./255, 
+```python
+train_data_gen = ImageDataGenerator(rescale=1./255, 
                                         shear_range=0.2, 
                                         zoom_range=0.2, 
                                         horizontal_flip=True)
