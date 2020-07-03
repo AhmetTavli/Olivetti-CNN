@@ -1,0 +1,9 @@
+MNIST
+cuda
+kwargs
+conv
+optim
+ndarray
+Adadelta
+dataiter
+Tensorboard
