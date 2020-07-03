@@ -348,8 +348,8 @@ def split_data(test_size, generate_data, write_to_file=True):
 def plot_loss(train_loss, test_loss):
     r"""Plot train and the test loss
     Args:
-        train_loss (): Training loss during epoch
-        test_loss (): Test loss during epoch
+        train_loss (list): Training loss during epoch
+        test_loss (list): Test loss during epoch
     """
     plot(train_loss, label='Training loss')
     plot(test_loss, label='Test los')
@@ -369,7 +369,7 @@ def display_generated_samples(n_row, n_col, x, y, t, title="Id:{}",
         y (list): labels
         t (str): Graph title
         title (str): Id title
-        fig_size (): figure size
+        fig_size (tuple): figure size
         dpi (int): dots per inch
         f_name (str): file name
     """

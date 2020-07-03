@@ -1,0 +1,11 @@
+language: python
+python:
+  - "3.7.7"
+install:
+  - conda install -c anaconda scikit-learn
+  - conda install -c conda-forge opencv
+  - conda install pytorch torchvision -c pytorch
+  - conda install -c conda-forge keras==2.3.1
+  - conda install -c conda-forge imutils
+  - conda install -c conda-forge matplotlib
+script: olivetti.py
