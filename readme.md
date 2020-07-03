@@ -29,9 +29,9 @@ We will have two types of image generator: train and test
 
 ```python
 train_data_gen = ImageDataGenerator(rescale=1./255, 
-                                        shear_range=0.2, 
-                                        zoom_range=0.2, 
-                                        horizontal_flip=True)
+                                    shear_range=0.2, 
+                                    zoom_range=0.2, 
+                                    horizontal_flip=True)```
     
 So what does it mean?
 
