@@ -1,3 +1,4 @@
+[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/AhmetTavli/Olivetti-CNN.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/AhmetTavli/Olivetti-CNN/context:python)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyTorch](https://github.com/AhmetTavli/Badge/blob/master/badges/pytorch-badge.svg)](https://pytorch.org/)
 [![Keras](https://github.com/AhmetTavli/Badge/blob/master/badges/keras_badge.svg)](https://keras.io/)
