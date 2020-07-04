@@ -3,6 +3,7 @@
 [![Keras](https://github.com/AhmetTavli/Badge/blob/master/badges/keras_badge.svg)](https://keras.io/)
 [![Python](https://upload.wikimedia.org/wikipedia/commons/f/fc/Blue_Python_3.7_Shield_Badge.svg)](https://www.python.org/)
 [![Scikit-learn](https://github.com/AhmetTavli/Badge/blob/master/badges/scikit_learn_badge.svg)](https://scikit-learn.org/stable/)
+[![OpenCV](https://github.com/AhmetTavli/Badge/blob/master/badges/opencv_badge.svg)](https://opencv.org/)
 [![PyCharm](https://github.com/AhmetTavli/Badge/blob/master/badges/pycharm_badge.svg)](https://www.jetbrains.com/pycharm/)
 
 # Olivetti - CNN
