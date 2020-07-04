@@ -2,6 +2,7 @@
 [![PyTorch](https://github.com/AhmetTavli/Badge/blob/master/badges/pytorch-badge.svg)](https://pytorch.org/)
 [![Keras](https://github.com/AhmetTavli/Badge/blob/master/badges/keras_badge.svg)](https://keras.io/)
 [![Python](https://upload.wikimedia.org/wikipedia/commons/f/fc/Blue_Python_3.7_Shield_Badge.svg)](https://www.python.org/)
+[![Scikit-learn](https://github.com/AhmetTavli/Badge/blob/master/badges/scikit_learn_badge.svg)](https://scikit-learn.org/stable/)
 [![Numpy](https://github.com/AhmetTavli/Badge/blob/master/badges/numpy_badge.svg)](https://numpy.org/)
 [![PyCharm](https://github.com/AhmetTavli/Badge/blob/master/badges/pycharm_badge.svg)](https://www.jetbrains.com/pycharm/)
 
